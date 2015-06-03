@@ -1,7 +1,7 @@
 require 'openssl'
 
 class PBKDF2
-  VERSION = '0.2.2'
+  VERSION = '0.3.0'
 
   def initialize(opts={})
     @hash_function = OpenSSL::Digest.new("sha256")
@@ -95,7 +95,6 @@ class PBKDF2
       # see if the OpenSSL lib understands it
       hash = OpenSSL::Digest.new(hash)
     when OpenSSL::Digest
-    when OpenSSL::Digest::Digest
       # ok
     else
       raise TypeError, "Unknown hash type: #{hash.class}"
